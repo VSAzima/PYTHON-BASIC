@@ -13,7 +13,29 @@ Examples:
     ''
 """
 from typing import Iterable
-
+from ordered_set import OrderedSet
 
 def build_from_unique_words(*lines: Iterable[str], word_number: int) -> str:
-    ...
+    if lines:
+        inter = list(lines)
+        i = 0
+        result = []
+        while i < len(inter):
+            y = inter[i]
+            part = y.split(' ')
+            result.append(part)
+            i += 1
+        answer = []
+        for each in result:
+            data = list(OrderedSet(each))
+            for key in data:
+                if key:
+                    if data.index(key) == word_number:
+                        answer.append(key)
+            total = ' '.join(answer)
+        if total:
+            return '{}'.format(total)
+        else:
+            print("''")
+    else:
+        print("''")
