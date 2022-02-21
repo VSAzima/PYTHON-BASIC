@@ -13,4 +13,15 @@ Examples:
 
 
 def remove_duplicated_words(line: str) -> str:
-    ...
+    inter = line.split(' ')
+    i = 0
+    unique = []
+    while i < len(inter):
+        check = unique.count(inter[i])
+        if check == 0:
+            unique.append(inter[i])
+        else:
+            i += 1
+    result = " ".join(unique)
+    returned = f"'{result}'"
+    print(returned)
