@@ -18,6 +18,21 @@ Examples:
 
 
 def read_numbers(n: int) -> str:
-    ...
+    intray = []
+    for _ in range(n):
+        try:
+            intray.append(int(input()))
+        except Exception:
+            pass
+    print(intray)
+    if len(intray) == 0:
+        print("No numbers entered")
+    else:
+        average = sum(intray) / len(intray)
+        answer = "{:.2f}".format(average)
+        print(f"Avg: {answer}")
+
+
+read_numbers(5)
 
 
